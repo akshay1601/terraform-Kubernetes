@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "acg-front-end.fullname" . }}
+  name: {{ .Values.metadata.name }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ template "acg-front-end.name" . }}
-    chart: {{ template "acg-front-end.chart" . }}
+    app: {{ .Values.metadata.labels.app }}
+    chart: {{ .Values.metadata.labels.chart }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -17,13 +17,13 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "acg-front-end.name" . }}
+        app: {{ .Values.metadata.labels.app }}
         release: {{ .Release.Name }}
     spec:
       volumes:
-        - name: {{ template "acg-front-end.fullname" . }}-config-file
+        - name: {{  .Values.spec.volumes.name }}-config-file
           secret:
-            secretName: {{ template "acg-front-end.fullname" . }}-config-file
+            secretName: {{ .Values.spec.volumes.name  }}-config-file
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -33,6 +33,6 @@ spec:
               containerPort: {{ .Values.service.containerPort }}
               protocol: TCP
           volumeMounts:
-            - name: {{ template "acg-front-end.fullname" . }}-config-file
+            - name: {{ .Values.spec.volumes.name }}-config-file
               mountPath: /usr/share/nginx/html/assets/json/config.json
               subPath: config.json

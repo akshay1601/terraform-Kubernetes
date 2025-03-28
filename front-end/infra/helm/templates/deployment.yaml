@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "acg-front-end.fullname" . }}
+  name: {{ template "acg-front-end.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ include "acg-front-end.name" . }}
-    chart: {{ include "acg-front-end.chart" . }}
+    app: {{ template "acg-front-end.name" . }}
+    chart: {{ template "acg-front-end.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "acg-front-end.name" . }}
+      app: {{ template "acg-front-end.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ include "acg-front-end.name" . }}
+        app: {{ template "acg-front-end.name" . }}
         release: {{ .Release.Name }}
     spec:
       volumes:
-        - name: {{ include "acg-front-end.fullname" . }}-config-file
+        - name: {{ template "acg-front-end.fullname" . }}-config-file
           secret:
-            secretName: {{ include "acg-front-end.fullname" . }}-config-file
+            secretName: {{ template "acg-front-end.fullname" . }}-config-file
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

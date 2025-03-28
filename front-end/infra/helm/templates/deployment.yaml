@@ -12,7 +12,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "acg-front-end.name" . }}
+      app: {{ .Values.metadata.labels.app }}
       release: {{ .Release.Name }}
   template:
     metadata:

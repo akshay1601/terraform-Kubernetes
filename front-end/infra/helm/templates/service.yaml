@@ -16,5 +16,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "acg-front-end.name" . }}
+    app: {{ include "acg-front-end.name" . }}
     release: {{ .Release.Name }}

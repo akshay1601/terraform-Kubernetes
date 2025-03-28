@@ -41,6 +41,8 @@ Resources:
               - elasticloadbalancing:DescribeTags
               - ec2:GetSecurityGroupsForVpc
               - elasticloadbalancing:DescribeListenerAttributes
+              - ec2:GetSecurityGroupsForVpc
+              - elasticloadbalancing:DescribeListenerAttributes
             Resource: '*'
           - Effect: Allow
             Action:

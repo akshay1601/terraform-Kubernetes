@@ -24,13 +24,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service: 
-                name: redirect
-                port: 
-                  name: use-annotation
-          - path: "/*"
-            pathType: ImplementationSpecific
-            backend:
-              service: 
                 name: {{ .Values.service.name }}
                 port:
                   number:  {{ .Values.service.servicePort }}

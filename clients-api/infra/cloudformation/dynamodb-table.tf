@@ -1,6 +1,6 @@
 resource "aws_dynamodb_table" "example" {
   name             = "example"
-  hash_key         = "TestTableHashKey"
+  hash_key         = "HASH"
   billing_mode     = "PAY_PER_REQUEST"
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"

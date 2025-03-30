@@ -1,6 +1,11 @@
 module "clients-api" {
     source = "./clients-api/infra/cloudformation"
-   
+        namespace = var.namespace
+        hash_key = var.hash_key
+        write = var.write
+        read = var.read
+        attribute_name = var.attribute_name
+        type = var.type
     }
 
 module "inventory-api" {

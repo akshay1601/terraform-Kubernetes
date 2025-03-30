@@ -5,7 +5,7 @@ resource "aws_dynamodb_table" "example" {
   read_capacity =  var.read
 
   attribute {
-    name = var.attribute_name
+    name = "_id"
     type = var.type
     
   }

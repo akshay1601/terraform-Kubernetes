@@ -4,7 +4,6 @@ module "clients-api" {
         hash_key = var.hash_key
         write = var.write
         read = var.read
-        attribute_name = var.attribute_name
         type = var.type
     }
 

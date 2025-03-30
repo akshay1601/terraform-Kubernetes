@@ -16,9 +16,4 @@ attribute {
     type = "S"
   }
 
-  attribute {
-    name = "name"
-    type = "S"
-  }
-
 }

@@ -6,7 +6,12 @@ resource "aws_dynamodb_table" "example" {
   stream_view_type = "NEW_AND_OLD_IMAGES"
 
   attribute {
-    name = "TestTableHashKey"
+    name = "HASH"
+    type = "S"
+  }
+
+attribute {
+    name = "_id"
     type = "S"
   }
 

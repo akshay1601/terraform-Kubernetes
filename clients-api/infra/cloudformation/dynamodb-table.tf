@@ -1,13 +1,13 @@
 resource "aws_dynamodb_table" "example" {
-  name             = "${var.namespace}-clients"
-  hash_key         = var.hash_key
-  write_capacity = var.write
-  read_capacity =  var.read
+  name             = "example"
+  hash_key         = "TestTableHashKey"
+  billing_mode     = "PAY_PER_REQUEST"
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
 
   attribute {
-    name = "name"
-    type = var.type
-    
+    name = "TestTableHashKey"
+    type = "S"
   }
 
 }

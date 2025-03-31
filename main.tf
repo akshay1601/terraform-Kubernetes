@@ -38,3 +38,10 @@ module "resource-api" {
         type = var.type
  
     }
+
+module "SSL-validation" {
+    source = "./Infrastructure/cloudformation/ssl-certificate"
+    domain_name = var.domain_name
+    environment = var.environment
+
+}

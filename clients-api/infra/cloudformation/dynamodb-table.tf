@@ -1,19 +1,14 @@
 resource "aws_dynamodb_table" "example" {
-  name             = "example"
-  hash_key         = "HASH"
-  range_key      = "_id"
-  billing_mode     = "PAY_PER_REQUEST"
+  name             = "${var.namespace}-clients"
+  hash_key         = var.hash_key
   stream_enabled   = true
-  stream_view_type = "NEW_AND_OLD_IMAGES"
-
-  attribute {
-    name = "HASH"
-    type = "S"
-  }
+  stream_view_type = var.stream_enabled
+  
 
 attribute {
-    name = "_id"
-    type = "S"
+    name = var.hash_key
+    type = var.type
+    
   }
 
 }

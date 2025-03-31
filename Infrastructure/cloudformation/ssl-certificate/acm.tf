@@ -13,7 +13,7 @@ resource "aws_acm_certificate" "cert" {
   }
 }
 
-data "aws_route53_zone" "route53" {
+data "aws_route53_zone" "example" {
   name         = var.domain_name
   private_zone = false
 }
@@ -32,7 +32,7 @@ resource "aws_route53_record" "example" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = data.aws_route53_zone.route53.zone_id
+  zone_id         = data.aws_route53_zone.example.zone_id
 }
 
 resource "aws_acm_certificate_validation" "example" {

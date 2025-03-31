@@ -43,6 +43,7 @@ Resources:
               - elasticloadbalancing:DescribeListenerAttributes
               - ec2:GetSecurityGroupsForVpc
               - elasticloadbalancing:DescribeListenerAttributes
+              - elasticloadbalancing:SetRulePriorities
             Resource: '*'
           - Effect: Allow
             Action:

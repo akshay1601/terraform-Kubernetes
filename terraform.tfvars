@@ -7,3 +7,4 @@ type = "S"
 domain_name = "*.637423197349.realhandsonlabs.net"
 subject_alternative_names  = ["637423197349.realhandsonlabs.net"]
 environment = "development"
+route-name = "637423197349.realhandsonlabs.net"

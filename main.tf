@@ -44,5 +44,5 @@ module "SSL-validation" {
     domain_name = var.domain_name
     environment = var.environment
     subject_alternative_names = var.subject_alternative_names
-
+    route-name = var.route-name
 }

@@ -13,7 +13,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 resource "aws_acm_certificate" "cert1" {
-  domain_name       = "example.com"
+  domain_name       = "moneyuncle.com"
   validation_method = "DNS"
   
 

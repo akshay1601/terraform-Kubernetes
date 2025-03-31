@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "example" {
+resource "aws_dynamodb_table" "clients" {
   name             = "${var.namespace}-clients"
   hash_key         = var.hash_key
   write_capacity   = var.write

@@ -13,13 +13,28 @@ module "clients-api" {
 
 module "inventory-api" {
     source = "./inventory-api/infra/cloudformation"
+        namespace = var.namespace
+        hash_key = var.hash_key
+        write = var.write
+        read = var.read
+        type = var.type
  
     }
 module "renting-api" {
     source = "./renting-api/infra/cloudformation"
+        namespace = var.namespace
+        hash_key = var.hash_key
+        write = var.write
+        read = var.read
+        type = var.type
 
     }
 module "resource-api" {
     source = "./resource-api/infra/cloudformation"
+        namespace = var.namespace
+        hash_key = var.hash_key
+        write = var.write
+        read = var.read
+        type = var.type
  
     }

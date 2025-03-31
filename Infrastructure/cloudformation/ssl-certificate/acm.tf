@@ -11,17 +11,3 @@ resource "aws_acm_certificate" "cert" {
     create_before_destroy = true
   }
 }
-
-resource "aws_acm_certificate" "cert1" {
-  domain_name       = "moneyuncle.com"
-  validation_method = "DNS"
-  
-
-  tags = {
-    Environment = var.environment
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
-}

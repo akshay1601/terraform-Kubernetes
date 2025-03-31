@@ -1,4 +1,4 @@
-./scripts-by-chapter/chapter-1.sh
+#./scripts-by-chapter/chapter-1.sh
 
 echo "***************************************************"
 echo "********* CHAPTER 2 - STARTED AT $(date) **********"
@@ -21,12 +21,7 @@ echo "--- This could take around 10 minutes"
     aws iam attach-role-policy --role-name ${nodegroup_iam_role} --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess
 
 #  Create the DynamoDB Tables
-    ( cd ./clients-api/infra/cloudformation && ./create-dynamodb-table.sh development ) & \
-    ( cd ./inventory-api/infra/cloudformation && ./create-dynamodb-table.sh development ) & \
-    ( cd ./renting-api/infra/cloudformation && ./create-dynamodb-table.sh development ) & \
-    ( cd ./resource-api/infra/cloudformation && ./create-dynamodb-table.sh development ) &
-
-    wait
+    terraform apply -auto-approve   
 
 
 
@@ -49,9 +44,6 @@ echo "************************** HERE IS YOUR APP!!! **************************"
 kubectl get ingress -n development front-end-development-ingress | grep bookstore | awk '{print $3}'
 echo "**************************"
 
-# Create the VPC CNI Addon
-
-    aws eks create-addon --addon-name vpc-cni --cluster-name eks-acg
 
 echo "*************************************************************"
 echo "********* READY TO CHAPTER 3! - FINISHED AT $(date) *********"

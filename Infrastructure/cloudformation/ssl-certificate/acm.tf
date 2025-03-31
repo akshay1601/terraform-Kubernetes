@@ -14,7 +14,7 @@ resource "aws_acm_certificate" "cert" {
 }
 
 data "aws_route53_zone" "example" {
-  name         = var.subject_alternative_names
+  name         = "637423197349.realhandsonlabs.net"
   private_zone = false
 }
 

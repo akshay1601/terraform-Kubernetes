@@ -43,5 +43,6 @@ module "SSL-validation" {
     source = "./Infrastructure/cloudformation/ssl-certificate"
     domain_name = var.domain_name
     environment = var.environment
+    subject_alternative_names = var.subject_alternative_names
 
 }

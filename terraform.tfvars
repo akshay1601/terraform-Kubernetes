@@ -4,4 +4,3 @@ hash_key = "_id"
 write = 5
 read = 5
 type = "S"
-stream_enabled = true

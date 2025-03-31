@@ -5,7 +5,6 @@ module "clients-api" {
         write = var.write
         read = var.read
         type = var.type
-        stream_enabled = var.stream_enabled
     }
 
 module "inventory-api" {

@@ -1,4 +1,4 @@
 resource "aws_iam_policy" "clients" {     
-    name = "${Namespace}-ClientsApiPolicy"                                                                                                  
+    name = "${namespace}-ClientsApiPolicy"                                                                                                  
     policy = file("/clients-api/infra/cloudformation/iam-policy-json")         
 } 

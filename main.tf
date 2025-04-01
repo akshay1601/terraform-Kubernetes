@@ -5,7 +5,6 @@ provider "aws" {
 module "clients-api" {
     source = "./clients-api/infra/cloudformation"
         namespace = var.namespace
-        client-namespace = var.client-namespace
         hash_key = var.hash_key
         write = var.write
         read = var.read

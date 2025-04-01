@@ -10,3 +10,4 @@ variable "environment" {}
 variable "subject_alternative_names" {}
 variable "route-name" {}
 variable "aws-account" {}
+variable "aws-region" {}

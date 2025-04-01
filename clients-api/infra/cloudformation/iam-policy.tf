@@ -1,14 +1,17 @@
 locals {
-  name_suffix = "${var.namespace != "" ? var.namespace : var.namespace }"
+  name_suffix_name = "${var.namespace != "" ? var.namespace : var.namespace }"
 }
 
 locals {
-  name_suffix1 = "${var.aws-account != "" ? var.aws-account : var.aws-account}"
+  name_suffix_account = "${var.aws-account != "" ? var.aws-account : var.aws-account}"
 }
 
+locals {
+  name_suffix_region = "${var.aws-region != "" ? var.aws-region : var.aws-region}"
+}
 
 resource "aws_iam_policy" "clients-api" {
-  name = "${replace(local.name_suffix, "-", "")}-ClientsApiPolicy"
+  name = "${replace(local.name_suffix_name, "-", "")}-ClientsApiPolicy"
 
 #policy = "${file("./clients-api/infra/cloudformation/iam-policy.json")}"
 policy = <<EOT
@@ -27,8 +30,8 @@ policy = <<EOT
                 "dynamodb:UpdateItem"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix1, "-", "")}:table/${replace(local.name_suffix, "-", "")}-clients",
-                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix1, "-", "")}:table/${replace(local.name_suffix1, "-", "")}/index/*"
+                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix, "-", "")}-clients",
+                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix1, "-", "")}/index/*"
         
             ],
             "Effect": "Allow"

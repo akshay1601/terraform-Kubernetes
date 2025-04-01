@@ -11,6 +11,7 @@ module "clients-api" {
         type = var.type
         aws-account =  var.aws-account
         environment = var.environment
+        aws-region = var.aws-region
 
     }
 

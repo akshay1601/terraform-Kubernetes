@@ -30,8 +30,8 @@ policy = <<EOT
                 "dynamodb:UpdateItem"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix, "-", "")}-clients",
-                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix1, "-", "")}/index/*"
+                "arn:aws:dynamodb:${replace(local.name_suffix_region, "-", "")}:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix_name, "-", "")}-clients",
+                "arn:aws:dynamodb:${replace(local.name_suffix_region, "-", "")}:${replace(local.name_suffix_account, "-", "")}:table/${replace(local.name_suffix_account, "-", "")}/index/*"
         
             ],
             "Effect": "Allow"

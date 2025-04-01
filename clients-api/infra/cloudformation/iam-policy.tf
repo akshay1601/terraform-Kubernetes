@@ -1,5 +1,5 @@
 locals {
-  name_suffix = "${var.namespace != "" ? "none" : "none1"}"
+  name_suffix = "${var.namespace == "" ? "none" : "none1"}"
 }
 
 locals {

@@ -2,6 +2,11 @@ locals {
   name_suffix = "${var.namespace != "" ? var.namespace : var.environment}"
 }
 
+locals {
+  name_suffix1 = "${var.aws-account != "" ? var.aws-account : var.aws-account}"
+}
+
+
 resource "aws_iam_policy" "clients-api" {
   name = "${replace(local.name_suffix, "-", "")}-ClientsApiPolicy"
 
@@ -22,8 +27,8 @@ policy = <<EOT
                 "dynamodb:UpdateItem"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-east-1:${aws-account}:table/${replace(local.name_suffix, "-", "")}-clients",
-                "arn:aws:dynamodb:us-east-1:${aws-account}:table/${aws-account}/index/*"
+                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix1, "-", "")}:table/${replace(local.name_suffix, "-", "")}-clients",
+                "arn:aws:dynamodb:us-east-1:${replace(local.name_suffix1, "-", "")}:table/${replace(local.name_suffix1, "-", "")}/index/*"
         
             ],
             "Effect": "Allow"

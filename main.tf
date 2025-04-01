@@ -10,6 +10,8 @@ module "clients-api" {
         read = var.read
         type = var.type
         aws-account =  var.aws-account
+        environment = var.environment
+
     }
 
 module "inventory-api" {

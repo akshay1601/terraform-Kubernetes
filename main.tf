@@ -10,7 +10,6 @@ module "clients-api" {
         read = var.read
         type = var.type
         aws-account =  var.aws-account
-        environment = var.environment
         aws-region = var.aws-region
 
     }
@@ -22,6 +21,8 @@ module "inventory-api" {
         write = var.write
         read = var.read
         type = var.type
+        aws-region = var.aws-region
+        aws-account =  var.aws-account
  
     }
 module "renting-api" {
@@ -31,6 +32,8 @@ module "renting-api" {
         write = var.write
         read = var.read
         type = var.type
+        aws-region = var.aws-region
+        aws-account =  var.aws-account
 
     }
 module "resource-api" {
@@ -40,6 +43,8 @@ module "resource-api" {
         write = var.write
         read = var.read
         type = var.type
+        aws-region = var.aws-region
+        aws-account =  var.aws-account
  
     }
 

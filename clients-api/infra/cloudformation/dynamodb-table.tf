@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "clients" {
-  name             = "${var.namespace}-clients"
+  name             = "${namespace}-ClientsApiPolicy"
   hash_key         = var.hash_key
   write_capacity   = var.write
   read_capacity    = var.read 

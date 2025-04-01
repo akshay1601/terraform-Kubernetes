@@ -8,7 +8,7 @@ locals {
 
 
 resource "aws_iam_policy" "clients-api" {
-  name = "${replace(local.name_suffix)}-ClientsApiPolicy"
+  name = "${replace(local.name_suffix, "-", "")}-ClientsApiPolicy"
 
 #policy = "${file("./clients-api/infra/cloudformation/iam-policy.json")}"
 policy = <<EOT

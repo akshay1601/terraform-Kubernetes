@@ -1,5 +1,5 @@
-./scripts-by-chapter/chapter-1.sh
-./scripts-by-chapter/chapter-2.sh
+# ./scripts-by-chapter/chapter-1.sh
+# ./scripts-by-chapter/chapter-2.sh
 
 echo "***************************************************"
 echo "********* CHAPTER 3 - STARTED AT $(date) **********"
@@ -9,14 +9,14 @@ echo "--- This could take around 10 minutes"
 # Create OIDC Provider and connect it with EKS
     eksctl utils associate-iam-oidc-provider --cluster=eks-acg --approve
 
-# Create IAM Policies of Bookstore Microservices
-    ( cd clients-api/infra/cloudformation && ./create-iam-policy.sh ) & \
-    ( cd resource-api/infra/cloudformation && ./create-iam-policy.sh ) & \
-    ( cd inventory-api/infra/cloudformation && ./create-iam-policy.sh ) & \
-    ( cd renting-api/infra/cloudformation && ./create-iam-policy.sh ) &
+# # Create IAM Policies of Bookstore Microservices
+#     ( cd clients-api/infra/cloudformation && ./create-iam-policy.sh ) & \
+#     ( cd resource-api/infra/cloudformation && ./create-iam-policy.sh ) & \
+#     ( cd inventory-api/infra/cloudformation && ./create-iam-policy.sh ) & \
+#     ( cd renting-api/infra/cloudformation && ./create-iam-policy.sh ) &
 
-    wait
-
+#     wait
+ terraform apply -auto-approve
 # Getting NodeGroup IAM Role from Kubernetes Cluster
     nodegroup_iam_role=$(aws cloudformation list-exports --query "Exports[?contains(Name, 'nodegroup-eks-node-group::InstanceRoleARN')].Value" --output text | xargs | cut -d "/" -f 2)
 
@@ -71,10 +71,10 @@ echo "--- This could take around 10 minutes"
     ( cd ./Infrastructure/k8s-tooling/external-dns && ./create-irsa.sh )
 
 
-# Updating IRSA for VPC CNI
-    vpc_cni_iam_policy="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    aws iam detach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${vpc_cni_iam_policy}
-    ( cd ./Infrastructure/k8s-tooling/cni && ./setup-irsa.sh )
+# # Updating IRSA for VPC CNI
+#     vpc_cni_iam_policy="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+#     aws iam detach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${vpc_cni_iam_policy}
+#     ( cd ./Infrastructure/k8s-tooling/cni && ./setup-irsa.sh )
 
 
 echo "*************************************************************"

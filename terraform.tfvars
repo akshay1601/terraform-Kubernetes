@@ -7,6 +7,6 @@ type = "S"
 
 #Infrastructure SSL variables
 environment = "development"
-domain_name = "*.471112683391.realhandsonlabs.net"
-subject_alternative_names  = ["471112683391.realhandsonlabs.net"]
-route-name = "471112683391.realhandsonlabs.net"
+domain_name = "*.654654152817.realhandsonlabs.net"
+subject_alternative_names  = ["654654152817.realhandsonlabs.net"]
+route-name = "654654152817.realhandsonlabs.net"

@@ -17,8 +17,9 @@ policy = <<EOT
                 "dynamodb:UpdateItem"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-east-1:654654152817:table/development-clients",
-                "arn:aws:dynamodb:us-east-1:654654152817:table/654654152817/index/*"
+                "arn:aws:dynamodb:us-east-1:${aws-account}:table/${namespace}-clients",
+                "arn:aws:dynamodb:us-east-1:${aws-account}:table/${aws-account}/index/*"
+        
             ],
             "Effect": "Allow"
         }

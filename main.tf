@@ -9,6 +9,7 @@ module "clients-api" {
         write = var.write
         read = var.read
         type = var.type
+        aws-account =  var.aws-account
     }
 
 module "inventory-api" {

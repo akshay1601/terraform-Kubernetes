@@ -7,6 +7,8 @@ resource "aws_iam_policy" "loadbalancer-controller" {
   name = "${(local.name_suffix_name)}-loadbalancer-controller"
 
 policy = "${file("./Infrastructure/k8s-tooling/load-balancer-controller/iam-policy.json")}"
+
+}
 # policy = <<EOT
 # {
 #     "Version": "2012-10-17",

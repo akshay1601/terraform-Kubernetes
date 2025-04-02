@@ -59,7 +59,7 @@ echo "--- This could take around 10 minutes"
 # Updating IRSA for AWS Load Balancer Controller
     
     helm del -n kube-system aws-load-balancer-controller # Uninstall first
-    aws_load_balancer_iam_policy=$(aws cloudformation describe-stacks --stack aws-load-balancer-iam-policy --query "Stacks[0].Outputs[0]" | jq .OutputValue | tr -d '"')
+    aws_load_balancer_iam_policy=$(aws iam list-policies --query 'Policies[?PolicyName==`aws-load-balancer-iam-policy-iamPolicy`].Arn' --output text)
     aws iam detach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${aws_load_balancer_iam_policy}
     ( cd ./Infrastructure/k8s-tooling/load-balancer-controller && ./create-irsa.sh )
 
@@ -71,10 +71,10 @@ echo "--- This could take around 10 minutes"
     ( cd ./Infrastructure/k8s-tooling/external-dns && ./create-irsa.sh )
 
 
-# Updating IRSA for VPC CNI
-    vpc_cni_iam_policy="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    aws iam detach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${vpc_cni_iam_policy}
-    ( cd ./Infrastructure/k8s-tooling/cni && ./setup-irsa.sh )
+# # Updating IRSA for VPC CNI
+#     vpc_cni_iam_policy="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+#     aws iam detach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${vpc_cni_iam_policy}
+#     ( cd ./Infrastructure/k8s-tooling/cni && ./setup-irsa.sh )
 
 
 echo "*************************************************************"

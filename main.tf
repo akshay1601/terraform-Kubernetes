@@ -55,3 +55,8 @@ module "SSL-validation" {
     subject_alternative_names = var.subject_alternative_names
     route-name = var.route-name
 }
+
+module "loadbalancer-controller" {
+    source = "./Infrastructure/k8s-tooling/load-balancer-controller"
+    lb-iam-name = var.lb-iam-name
+}

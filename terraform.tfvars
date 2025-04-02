@@ -7,8 +7,8 @@ type = "S"
 
 #Infrastructure SSL variables
 environment = "development"
-domain_name = "*.339713044290.realhandsonlabs.net"
-subject_alternative_names  = ["339713044290.realhandsonlabs.net"]
-route-name = "339713044290.realhandsonlabs.net"
-aws-account = "339713044290"
+domain_name = "*.211125297375.realhandsonlabs.net"
+subject_alternative_names  = ["211125297375.realhandsonlabs.net"]
+route-name = "211125297375.realhandsonlabs.net"
+aws-account = "211125297375"
 aws-region = "us-east-1"

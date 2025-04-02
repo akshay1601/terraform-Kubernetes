@@ -11,3 +11,5 @@ variable "subject_alternative_names" {}
 variable "route-name" {}
 variable "aws-account" {}
 variable "aws-region" {}
+
+variable "lb-iam-name" {}

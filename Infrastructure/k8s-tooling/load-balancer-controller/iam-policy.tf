@@ -4,7 +4,7 @@ locals {
 
 
 resource "aws_iam_policy" "loadbalancer-controller" {
-  name = "${(local.name_suffix_name)}-loadbalancer-controller"
+  name = "${(local.name_suffix_name)}"
 
 policy = "${file("./Infrastructure/k8s-tooling/load-balancer-controller/iam-policy.json")}"
 

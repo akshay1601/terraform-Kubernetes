@@ -43,7 +43,7 @@ resource "aws_route53_record" "write-domain_name" {
   type            = "CNAME"
   zone_id         = data.aws_route53_zone.read-domain_name.zone_id
   records = [
-    aws_route53_zone.read-domain_name.name_server[0]
+    aws_route53_zone.read-domain_name.name[0]
 
   ]
 }

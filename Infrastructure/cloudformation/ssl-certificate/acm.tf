@@ -52,6 +52,6 @@ resource "aws_route53_record" "write-domain_name" {
 
 resource "aws_acm_certificate_validation" "example" {
   certificate_arn         = aws_acm_certificate.cert.arn
-  validation_record_fqdns = [ aws_route53_record.write-domain_name.records]
+  validation_record_fqdns = [aws_route53_record.write-domain_name.records]
 }
 

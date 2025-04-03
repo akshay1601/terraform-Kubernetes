@@ -20,7 +20,7 @@ data "aws_route53_zone" "read-domain_name" {
 
 resource "aws_route53_record" "write-domain_name" {
   for_each = {
-    for dvo in aws_acm_certificate.cert.domain_validation_options : dvo.domain_name => {
+    for dvo in aws_acm_certificate.cert.domain_validation_options[0] : dvo.domain_name => {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
       type   = dvo.resource_record_type
@@ -28,10 +28,10 @@ resource "aws_route53_record" "write-domain_name" {
   }
 
   allow_overwrite = true
-  name            = each.value.name[0]
-  records         = [each.value.record[0]]
+  name            = each.value.name
+  records         = [each.value.record]
   ttl             = 60
-  type            = each.value.type[0]
+  type            = each.value.type
   zone_id         = data.aws_route53_zone.read-domain_name.zone_id
 }
 

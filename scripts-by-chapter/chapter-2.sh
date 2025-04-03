@@ -17,6 +17,7 @@ echo "--- This could take around 10 minutes"
     terraform apply -auto-approve
 
 # Installing ExternalDNS
+
     ./Infrastructure/k8s-tooling/external-dns/create.sh
     # aws iam attach-role-policy --role-name ${nodegroup_iam_role} --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess
 

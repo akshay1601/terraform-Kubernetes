@@ -28,10 +28,10 @@ resource "aws_route53_record" "write-domain_name" {
   }
 
   allow_overwrite = true
-  name            = each.value.name
-  records         = [each.value.record]
+  name            = each.value.name[0]
+  records         = [each.value.record[0]]
   ttl             = 60
-  type            = each.value.type
+  type            = each.value.type[0]
   zone_id         = data.aws_route53_zone.read-domain_name.zone_id
 }
 

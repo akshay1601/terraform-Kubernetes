@@ -11,7 +11,7 @@ echo "--- This could take around 10 minutes"
 # Installing Load Balancer Controller
     ( cd ./Infrastructure/k8s-tooling/load-balancer-controller && ./create.sh )
     # aws_lb_controller_policy=$(aws cloudformation describe-stacks --stack-name aws-load-balancer-iam-policy --query "Stacks[*].Outputs[?OutputKey=='IamPolicyArn'].OutputValue" --output text | xargs)
-    # aws iam attach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${aws_lb_controller_policy}
+     aws iam attach-role-policy --role-name ${nodegroup_iam_role} --policy-arn ${aws_lb_controller_policy}
 
 # Create SSL Certfiicate in ACM
     terraform apply -auto-approve
